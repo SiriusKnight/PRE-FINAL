@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pre-Final</title>
+</head>
+<body>
+  <form onsubmit="OddEven();">
+    <label for="numberInput">Enter a number:</label>
+    <input type="number" id="numberInput" required>
+    <button type="submit">Submit</button>
+  </form>
+  <div id="outputResult"></div>
+
+  <script>
+
+    function isPrime(num) {
+      if (num <= 1) return false;
+      for (var i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false;
+      }
+      return true;
+    }
+
+
+    function oddEven() {
+      var inputNumber = document.getElementById('numberInput').value;
+      var output = ${inputNumber} is a prime number<br>;
+
+      output += 'Odd numbers: ';
+      for (var i = 1; i <= inputNumber; i += 2) {
+        output += i + (i < inputNumber - 1 ? ', ' : '');
+      }
+
+      output += '<br>Even Numbers: ';
+      for (var i = 2; i <= inputNumber; i += 2) {
+        output += i + (i < inputNumber ? ', ' : '');
+      }
+
+      document.getElementById('outputResult').innerHTML = output;
+    }
+  </script>
+</body>
+</html>
